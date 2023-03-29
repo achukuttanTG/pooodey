@@ -767,11 +767,6 @@ async def advantage_spell_chok(msg):
                 movielist += [movie.get('title') for movie in imdb_s]
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
-    if not movielist:
-        k = await msg.reply("𝙄 𝘾𝘼𝙉𝙏 𝙁𝙄𝙉𝘿 𝘼𝙉𝙔𝙏𝙃𝙄𝙉𝙂 𝙍𝙀𝙇𝙀𝘼𝙏𝙀𝘿 𝙏𝙊 𝙏𝙃𝘼𝙏 𝙎𝙋𝙀𝙇𝙇𝙄𝙉𝙂, 𝘾𝙃𝙀𝘾𝙆 𝙏𝙃𝙀 𝙎𝙋𝙀𝙇𝙇𝙄𝙉𝙂")
-        await asyncio.sleep(8)
-        await k.delete()
-        return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
         InlineKeyboardButton(
