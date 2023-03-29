@@ -25,8 +25,8 @@ async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
         return await message.reply('Reply to a message to get a shareable link.')
-    file_type = replied.media
-    if file_type not in ["video", 'audio', 'document']:
+    file_type = replied.text
+    if file_type not in ["text"]:
         return await message.reply("Reply to a supported media")
     if message.has_protected_content and message.chat.id not in ADMINS:
         return await message.reply("okDa")
